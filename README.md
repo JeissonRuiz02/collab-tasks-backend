@@ -128,4 +128,4 @@ steps:
 ## 📣 Autor
 - Desarrollado por Jeisson Ruiz
 - 🚀 Proyecto de práctica full stack en GCP
-- 📬 Contacto: jeissonruizdev@gmail.com
+- 📬 Contacto: jeissonruizdev@gmail.com .
