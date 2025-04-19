@@ -24,4 +24,16 @@ steps:
       - '--set-env-vars'
       - 'GCP_PROJECT_ID=$PROJECT_ID,TASK_CREATED_TOPIC=task-created,TASK_UPDATED_TOPIC=task-updated,TASK_DELETED_TOPIC=task-deleted'
 
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - beta
+      - run
+      - services
+      - add-iam-policy-binding
+      - collab-tasks-api
+      - --region=us-central1
+      - --member=allUsers
+      - --role=roles/run.invoker
+
 timeout: 900s

@@ -21,5 +21,4 @@ COPY . .
 ENV PYTHONPATH=/app/src
 EXPOSE 8080
 
-# 🔥 Aquí está el cambio importante
 CMD ["uvicorn", "src.collab_tasks_backend.main:app", "--host", "0.0.0.0", "--port", "8080"]
