@@ -1,0 +1,24 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/collab-tasks-api', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/collab-tasks-api']
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'collab-tasks-api'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/collab-tasks-api'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--set-env-vars'
+      - 'GCP_PROJECT_ID=$PROJECT_ID,TASK_CREATED_TOPIC=task-created,TASK_UPDATED_TOPIC=task-updated,TASK_DELETED_TOPIC=task-deleted'
+
+timeout: 900s
