@@ -1,1 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Poetry virtualenv
+*.venv/
+.env
+.venv/
+*.env
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# GCP credentials
 src/collab_tasks_backend/credentials/gcp-service-account.json
+
+# Env files
+.env.*
+
+# Uvicorn logs
+*.pid
+
+# Docker
+*.tar
